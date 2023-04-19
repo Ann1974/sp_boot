@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Редактировать список пользователей</title>
+</head>
+<body bgcolor="#afeeee">
+<table class ="italic">
+<h1>Изменение данных</h1>
+  <tr>
+    <form th:method="patch" th:action="@{/{id}((id=${user.getId()})}" th:object="${user}">
+       <td bgcolor="#ffd700">
+         <label for="id"><h3>ID</h3></label>
+         <input readonly type="number" th:field="*{id}" id="id" placeholder="id">
+       </td>
+      <td bgcolor="#f0f8ff">
+        <label for="name"><h3>Имя</h3></label><input type="text" th:field="*{name}" id="name"/>
+        <div th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Name error</div>
+      </td>
+       <td bgcolor="#f0f8ff">
+          <label for="last_name"><h3>Фамилия</h3></label><input type="text" th:field="*{lastName}" id="last_Name">
+          <div th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}">lastName error</div>
+       </td>
+      <br/>
+      <input type="submit" value="ОБНОВИТЬ ПОЛЬЗОВАТЕЛЯ"/>
+    </form>
+  </tr>
+  <br/>
+</table>
+
+</body>
+</html>

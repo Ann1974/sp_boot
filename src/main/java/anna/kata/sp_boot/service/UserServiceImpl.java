@@ -1,35 +1,50 @@
 package anna.kata.sp_boot.service;
 
+import anna.kata.sp_boot.dao.UserDao;
 import anna.kata.sp_boot.model.User;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
 @Service
 public class UserServiceImpl implements UserService{
 
+    private final UserDao userDao;
+    @Autowired
+    public UserServiceImpl(UserDao userDao) {
+        this.userDao = userDao;
+    }
+
     @Override
+    @Transactional
     public void saveUser(User user) {
+        userDao.saveUser(user);
 
     }
 
     @Override
+    @Transactional
     public void updateUser(User updateUser) {
+        userDao.updateUser(updateUser);
 
     }
 
     @Override
+    @Transactional
     public void removeUserById(Long id) {
+        userDao.removeUserById(id);
 
     }
 
     @Override
     public List<User> getAllUsers() {
-        return null;
+        return userDao.getAllUsers();
     }
 
     @Override
     public User getUserById(Long id) {
-        return null;
+        return userDao.getUserById(id);
     }
 }

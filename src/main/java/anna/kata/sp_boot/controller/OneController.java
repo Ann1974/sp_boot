@@ -46,7 +46,7 @@ public class OneController {
         model.addAttribute("user", userService.getUserById(id));
         return "/edit";
     }
-    @GetMapping("/views/{id}")//+ 
+    @GetMapping("/views/{id}")//+
     public String find(@PathVariable("id") Long id, Model model) {
         model.addAttribute("user", userService.getUserById(id));
         return "/findUser";//

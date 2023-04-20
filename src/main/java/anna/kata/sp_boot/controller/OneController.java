@@ -20,12 +20,12 @@ public class OneController {
     @GetMapping(value = "/")//+ //+
     public  String  index(Model model){
         model.addAttribute("users", userService.getAllUsers());
-        return "views/allUsers";
+        return "/allUsers";
     }
-    @GetMapping("/newUser")//+ //+
+    @GetMapping("/views/newUser")//+ //+
     public String newUser(Model model) {
         model.addAttribute("user", new User());
-        return "views/newUser";
+        return "/newUser";
     }
 
     @DeleteMapping("/views/{id}")//+
@@ -41,17 +41,17 @@ public class OneController {
 
     }
 
-    @GetMapping("/{id}/edit")// +
+    @GetMapping("/views/{id}/edit")// +
     public String edit(Model model, @PathVariable("id")Long id) {
         model.addAttribute("user", userService.getUserById(id));
-        return "views/edit";
+        return "/edit";
     }
-    @GetMapping("views/{id}")//+
+    @GetMapping("/views/{id}")//+ 
     public String find(@PathVariable("id") Long id, Model model) {
         model.addAttribute("user", userService.getUserById(id));
-        return "views/findUser";//
+        return "/findUser";//
     }
-    @PatchMapping("/{id}")//?
+    @PatchMapping("/views/{id}")//?
     public String update(@ModelAttribute("user") User user) {
         userService.updateUser(user);
         return "redirect:/";

@@ -28,30 +28,30 @@ public class OneController {
         return "/newUser";
     }
 
-    @DeleteMapping("/views/{id}")//+
+    @DeleteMapping("{id}")//+
     public String delete(@PathVariable("id") Long id) {
         userService.removeUserById(id);
         return "redirect:/";
     }
 
-    @PostMapping("/pages")//+
+    @PostMapping("/views")//+
     public String create(@ModelAttribute("user") User user) {
         userService.saveUser(user);
         return "redirect:/";
 
     }
 
-    @GetMapping("/views/{id}/edit")// +
+    @GetMapping("views/{id}/edit")// +
     public String edit(Model model, @PathVariable("id")Long id) {
         model.addAttribute("user", userService.getUserById(id));
-        return "/edit";
+        return "edit";
     }
     @GetMapping("/views/{id}")//+
     public String find(@PathVariable("id") Long id, Model model) {
         model.addAttribute("user", userService.getUserById(id));
         return "/findUser";//
     }
-    @PatchMapping("/views/{id}")//?
+    @PatchMapping("/{id}")//?
     public String update(@ModelAttribute("user") User user) {
         userService.updateUser(user);
         return "redirect:/";

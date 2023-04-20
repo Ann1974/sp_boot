@@ -25,7 +25,7 @@
         <th bgcolor="#f0f8ff" th:utext="${user.getLastName()}"></th>
         <td bgcolor="b0c4de">
 
-            <form th:method="DELETE" th:action="@{/views/{id}(id=${user.getId()})}">
+            <form th:method="DELETE" th:action="@{/{id}(id=${user.getId()})}">
                 <input type="submit" value="УДАЛИТЬ">
             </form>
             <a th:href="@{/views/{id}/edit(id=${user.getId()})}">

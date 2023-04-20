@@ -6,7 +6,7 @@
 </head>
 <body  bgcolor="#afeeee">
 <h1>Ввод данных</h1>
-<form  th:method="POST" th:action="@{/pages}" th:object="${user}">
+<form  th:method="POST" th:action="@{/views}" th:object="${user}">
     <h3> <label bgcolor="#f0e68c" for="name">Введите имя</label></h3>
     <input type="text" th:field="*{name}" id="name"/>
     <br>

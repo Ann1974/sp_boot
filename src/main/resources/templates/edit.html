@@ -8,7 +8,7 @@
 <table class ="italic">
 <h1>Изменение данных</h1>
   <tr>
-    <form th:method="patch" th:action="@{/views/{id}((id=${user.getId()})}" th:object="${user}">
+    <form th:method="patch" th:action="@{/{id}(id=${user.getId()})}" th:object="${user}">
        <td bgcolor="#ffd700">
          <label for="id"><h3>ID</h3></label>
          <input readonly type="number" th:field="*{id}" id="id" placeholder="id">
